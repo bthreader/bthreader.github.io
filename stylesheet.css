@@ -1,0 +1,128 @@
+@font-face {
+    font-family: vvs;
+    src: url(assets/SportingGrotesque-Regular.otf);
+}
+
+* {
+    box-sizing:border-box;
+}
+
+body {
+    font-family: vvs;
+    color:white;
+    height:100vh; 
+    width:100vw; 
+    padding:0; 
+    margin:0; 
+    overflow:hidden;
+    text-rendering: optimizeLegibility;
+}
+
+.container {
+    height:100vh; 
+    width:100vw; 
+    background:black; 
+    border:1.5vw solid white; 
+}
+
+.main-box {
+    text-align: center;
+    left: 50%; 
+    top: 50%;
+    transform: translate(-50%, -50%);
+    position: fixed; 
+    max-height: 97vh;
+    overflow-y: scroll;
+}
+
+.title {
+    font-size:4vw;
+    white-space: nowrap;
+}
+
+.about {
+    font-size:1.5vw;
+    text-align:left;
+    display:none;
+}
+
+.nav-left, .nav-right {
+    transform-origin: bottom left;
+    word-spacing: 2vw;
+    position: fixed;
+    display: inline;
+    font-size: 1.2vw;
+}
+
+.nav-left { 
+    transform: rotate(-90deg); 
+    left: 10%;
+    top: 35%; 
+}
+
+.nav-right {
+    transform: rotate(90deg);
+    right: 0%;
+    bottom: 40%;
+}
+
+/* Landscape - not full screen */
+@media only screen and (orientation:landscape) and (max-width:1200px) {
+    .nav-left, .nav-right {
+        font-size: 1.5vw;
+    }
+}
+
+/* Portrait */
+@media only screen and (orientation:portrait) {
+    .nav-left, .nav-right {
+        font-size: 2.75vw;
+    }
+    .title {
+        font-size: 5vw;
+    }
+    .about {
+        font-size: 3vw;
+    }
+}
+
+a {
+    border:none;
+    cursor: pointer;
+    text-decoration:none;
+}
+
+a:link,a:visited,a:active {
+    color:white;
+}
+
+.fadein, .fadeout {
+    animation-fill-mode: both;
+}
+
+.fadein {
+    animation-duration: 1s;
+    animation-name: fade_in;
+}
+
+.fadeout {
+    animation-duration: 0.5s;
+    animation-name: fade_out;
+    animation-timing-function: cubic-belzier(1,1,1,0.75);
+}
+
+@keyframes fade_in {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes fade_out {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+
+.story-pagination {
+    align-items: center;
+    display: inline-flex;
+    justify-content: space-between;
+}
